@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品牌故事 | 饈菓子</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html"><img src="image/logo.png" alt="饈菓子 Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">品牌故事</a></li>
+                <li><a href="products.html">精選菓子</a></li>
+                <li><a href="awards.html">榮譽紀錄</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section: 極簡大氣 -->
+        <section class="about-hero"
+            style="background: url('image/main.jpg') no-repeat center center / cover; height: 70vh; display: flex; align-items: flex-end; padding-bottom: 80px;">
+            <div class="container">
+                <div class="fade-up" style="max-width: 600px; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+                    <span style="letter-spacing: 0.4em; font-size: 0.9rem;">BRAND STORY</span>
+                    <h1 style="font-size: 4rem; margin-top: 10px;">職人之心，饈之款待</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- 雜誌式排版區塊 1 -->
+        <section class="editorial-section">
+            <div class="container">
+                <div class="editorial-grid">
+                    <div class="editorial-image fade-up">
+                        <img src="image/brandf.jpg" alt="品牌起源">
+                    </div>
+                    <div class="editorial-text fade-up">
+                        <div class="vertical-marker">ESTABLISHED 2024</div>
+                        <h2>美學的<br>起點</h2>
+                        <p>「饈」，意指精美的食物。在饈菓子，我們不只是在製作甜點，更是在傳遞一份關於節氣、土地與手作溫度的禮物。</p>
+                        <p>空間保留了木質的溫潤與歲月的痕跡，讓訪客在穿過暖簾的那一刻，都能感受到時間的靜止。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 雜誌式排版區塊 2 (反向) -->
+        <section class="editorial-section" style="background: rgba(166, 141, 125, 0.03);">
+            <div class="container">
+                <div class="editorial-grid reverse">
+                    <div class="editorial-image fade-up">
+                        <img src="image/ran1.jpg" alt="旬之哲學">
+                    </div>
+                    <div class="editorial-text fade-up">
+                        <div class="vertical-marker">SEASONAL PHILOSOPHY</div>
+                        <h2>旬之<br>哲學</h2>
+                        <p>和菓子的靈魂在於「季節感」。我們順應節氣，選用當下最新鮮的食材。每一道菓子的造型，都是大地無聲的告白。</p>
+                        <p>在寧靜的器皿中，展現出 Wabi-Sabi 的缺陷美與不完美中的完美。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 重新設計：指尖工藝 (左圖右字) -->
+        <section class="editorial-section">
+            <div class="container">
+                <div class="editorial-grid">
+                    <div class="editorial-image fade-up">
+                        <img src="image/bg1.jpg" alt="工藝質感">
+                    </div>
+                    <div class="editorial-text fade-up">
+                        <div class="vertical-marker">THE MASTERY</div>
+                        <h2>指尖的<br>溫度</h2>
+                        <p>每一顆菓子都需要職人經過數千次的捏塑。那份指尖微小的力道差異，決定了菓子的神韻。</p>
+                        <p>我們堅持手作，不只是為了傳統，更是為了保留那份機器無法取代的人性溫度。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 誠摯邀請 -->
+        <section class="invitation-section">
+            <div class="invitation-left">
+                <div class="invitation-content fade-up">
+                    <span class="subtitle" style="color: var(--white); opacity: 0.6;">VISIT US</span>
+                    <h2>誠摯邀請<br>入店品味</h2>
+                    <p>在繁華的都市中，為您預留一方恬靜。穿過暖簾，踏入饈菓子的空間，感受職人的手作溫度。</p>
+                    <a href="#footer" class="btn"
+                        style="border-color: var(--white); color: var(--white); background: transparent;">查看門市資訊</a>
+                </div>
+            </div>
+            <div class="invitation-right fade-up">
+                <img src="image/do1.png" alt="饈菓子 吉祥物">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="image/logo.png" alt="饈菓子">
+                    <p>職人之心，饈之款待</p>
+                </div>
+                <div class="footer-info">
+                    <p>地址：京都市下京區烏丸通塩小路下爾東塩小路町</p>
+                    <p>電話：+81 75-123-4567</p>
+                    <p>Email：contact@xiukashi.jp</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><img src="image/fb.png" alt="Facebook"></a>
+                    <a href="#"><img src="image/ig.png" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 饈菓子. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>榮譽紀錄 | 饈菓子</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html"><img src="image/logo.png" alt="饈菓子 Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">品牌故事</a></li>
+                <li><a href="products.html">精選菓子</a></li>
+                <li><a href="awards.html">榮譽紀錄</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 新增：榮譽頁頂部輪播 -->
+        <section class="hero" style="height: 60vh;">
+            <div class="hero-carousel">
+                <div class="slide active"><img src="image/namagashi.png" alt="饈菓子 生菓子工藝"></div>
+                <div class="slide"><img src="image/brandf1.jpg" alt="饈菓子 職人空間"></div>
+                <div class="slide"><img src="image/dango.png" alt="饈菓子 傳統糰子"></div>
+            </div>
+            <div class="carousel-nav">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="hero-content" style="position: absolute; z-index: 10;">
+                <h1 style="font-size: 3.5rem; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.3);">卓越工藝・國際肯定</h1>
+            </div>
+        </section>
+
+        <section class="awards" style="padding-top: 100px;">
+            <div class="container">
+                <div class="awards-content fade-up"
+                    style="background: rgba(255, 255, 255, 0.8); padding: 60px; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <img src="image/hero_namagashi.png" alt="榮譽" class="award-logo">
+                    <h2>國際品質肯定的工藝</h2>
+                    <p style="max-width: 600px; margin: 0 auto 60px; color: var(--text-secondary);">
+                        我們對每一顆菓子的堅持，不僅贏得了職人界的尊重，更獲得了國際權威機構的肯定。</p>
+
+                    <div class="awards-list">
+                        <div class="award-item">
+                            <img src="image/best1.png" alt="Award 1" style="width: 60px; margin: 0 auto;">
+                            <span class="year">2024</span>
+                            <span class="name">Monde Selection Gold</span>
+                        </div>
+                        <div class="award-item">
+                            <img src="image/best2.png" alt="Award 2" style="width: 60px; margin: 0 auto;">
+                            <span class="year">2023</span>
+                            <span class="name">和風設計大賞 最優秀獎</span>
+                        </div>
+                        <div class="award-item">
+                            <img src="image/best3.png" alt="Award 3" style="width: 60px; margin: 0 auto;">
+                            <span class="year">2023</span>
+                            <span class="name">iTQi 國際風味評鑑 3 星</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 優化：品質守護區塊 (回歸精緻卡片風格) -->
+        <section class="container" style="padding: 100px 0;">
+            <div class="glass-card fade-up">
+                <div class="editorial-grid">
+                    <div class="editorial-text">
+                        <span class="subtitle">QUALITY ASSURANCE</span>
+                        <h2>嚴謹的品質守護</h2>
+                        <p>饈菓子採用嚴格的品質控制流程，從食材來源到最終成品，每一步都經過職人的親自把關。這份對細節的偏執，是我們獲獎的根本。</p>
+                    </div>
+                    <div class="editorial-image">
+                        <img src="image/hero_yokan.png" alt="品質管理細節">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 重新設計：誠摯邀請區塊 -->
+        <section class="invitation-section">
+            <div class="invitation-left">
+                <div class="invitation-content fade-up">
+                    <span class="subtitle" style="color: var(--white); opacity: 0.6;">VISIT US</span>
+                    <h2>誠摯邀請<br>入店品味</h2>
+                    <p>在繁華的都市中，為您預留一方恬靜。歡迎親臨門市，感受職人的手作溫度。</p>
+                    <a href="#footer" class="btn"
+                        style="border-color: var(--white); color: var(--white); background: transparent;">查看門市資訊</a>
+                </div>
+            </div>
+            <div class="invitation-right fade-up">
+                <img src="image/do1.png" alt="饈菓子 吉祥物">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="image/logo.png" alt="饈菓子">
+                    <p>職人之心，饈之款待</p>
+                </div>
+                <div class="footer-info">
+                    <p>地址：京都市下京區烏丸通塩小路下爾東塩小路町</p>
+                    <p>電話：+81 75-123-4567</p>
+                    <p>Email：contact@xiukashi.jp</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><img src="image/fb.png" alt="Facebook"></a>
+                    <a href="#"><img src="image/ig.png" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 饈菓子. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

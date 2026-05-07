@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精選菓子 | 饈菓子</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html"><img src="image/logo.png" alt="饈菓子 Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">品牌故事</a></li>
+                <li><a href="products.html">精選菓子</a></li>
+                <li><a href="awards.html">榮譽紀錄</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main style="padding-top: 150px;">
+        <section class="products">
+            <div class="container" id="products-dynamic-container">
+                <!-- 產品分類與卡片將由 JavaScript 動態注入 -->
+                <div style="text-align: center; padding: 100px; color: var(--accent-color);">
+                    <p>正在載入精選菓子...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 詳情彈窗結構 -->
+    <div id="detail-modal" class="detail-modal">
+        <div class="detail-content">
+            <span class="close-detail">&times;</span>
+            <div class="detail-img">
+                <img id="modal-img" src="" alt="產品詳情">
+            </div>
+            <div class="detail-info">
+                <span class="subtitle">MICRO VIEW</span>
+                <h2 id="modal-title">產品名稱</h2>
+                <p id="modal-desc">產品詳細描述</p>
+                <div class="modal-meta" style="margin-top: 20px; font-size: 0.8rem; color: var(--accent-color);">
+                    <span>* 職人每日限量手作</span><br>
+                    <span>* 建議當日享用以保持最佳口感</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="image/logo.png" alt="饈菓子">
+                    <p>職人之心，饈之款待</p>
+                </div>
+                <div class="footer-info">
+                    <p>地址：京都市下京區烏丸通塩小路下ル東塩小路町</p>
+                    <p>電話：+81 75-123-4567</p>
+                    <p>Email：contact@xiukashi.jp</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><img src="image/fb.png" alt="Facebook"></a>
+                    <a href="#"><img src="image/ig.png" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 饈菓子. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
