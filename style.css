@@ -961,6 +961,126 @@ footer {
 }
 
 /* Animation Classes */
+/* Tour System */
+.tour-trigger {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(60, 42, 33, 0.15);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.4s var(--transition-curve);
+    border: 1px solid rgba(166, 141, 125, 0.2);
+}
+
+.tour-trigger:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 15px 40px rgba(60, 42, 33, 0.2);
+}
+
+.tour-trigger img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.tour-guide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: none;
+    pointer-events: none;
+}
+
+.tour-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+    backdrop-filter: blur(2px);
+    mask: radial-gradient(circle at center, transparent 150px, black 151px);
+    -webkit-mask: radial-gradient(circle at center, transparent 150px, black 151px);
+    transition: all 0.5s ease;
+}
+
+.tour-tooltip {
+    position: absolute;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    width: 320px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+    pointer-events: auto;
+    z-index: 2100;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.tour-content h4 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.tour-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.tour-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #EEE;
+}
+
+.tour-step {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.tour-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.tour-btns button {
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-primary { background: var(--text-primary); color: white; }
+.btn-secondary { background: #F0F0F0; color: #666; }
+.btn-close-abs {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+}
+
 .fade-up {
     opacity: 0;
     transform: translateY(30px);

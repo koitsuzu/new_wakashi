@@ -408,11 +408,159 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start rendering
     renderProducts();
 
-    // FAQ Toggle Logic
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        item.onclick = () => {
-            item.classList.toggle('active');
+    // --- Advanced Multi-page Tour System ---
+    const allTourSteps = {
+        'index.html': [
+            { target: '.logo', title: "饈菓子", text: "歡迎來到官網，點擊 Logo 可隨時回到此處。" },
+            { target: '.hero', title: "季節限定", text: "這裡展示我們隨四季變化的核心視覺。" },
+            { target: '.puzzle-section', title: "解謎尋寶", text: "全站藏有驚喜，找齊後可獲得專屬折扣。" },
+            { target: '.nav-links li:nth-child(2)', title: "下一站", text: "接著，讓我們去了解品牌背後的故事。", action: "click-next" }
+        ],
+        'about.html': [
+            { target: '.editorial-grid', title: "職人匠心", text: "在這裡您可以讀到我們對每一份菓子的堅持。" },
+            { target: '.nav-links li:nth-child(3)', title: "繼續探索", text: "來看看我們精選的產品清單。", action: "click-next" }
+        ],
+        'products.html': [
+            { target: '.product-group', title: "菓子圖鑑", text: "網羅四大系列，點擊卡片可查看詳細成分。" },
+            { target: '.nav-links li:nth-child(4)', title: "最後一站", text: "看看饈菓子獲得的國際肯定。", action: "click-next" }
+        ],
+        'awards.html': [
+            { target: '.awards-content', title: "卓越紀錄", text: "這是我們多年來累積的榮耀，感謝您的支持。" },
+            { target: '.footer-social', title: "保持聯繫", text: "歡迎追蹤我們，掌握第一手新品資訊。" }
+        ]
+    };
+
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    let currentTourStep = 0;
+    
+    // 動態注入 Tour HTML
+    function injectTourUI() {
+        if (document.getElementById('tour-guide')) return;
+        const html = `
+            <div id="tour-trigger" class="tour-trigger"><img src="image/search2.png" alt="Tour"></div>
+            <div id="tour-guide" class="tour-guide">
+                <div class="tour-overlay"></div>
+                <div class="tour-tooltip">
+                    <div class="tour-content"><h4 id="tour-title"></h4><p id="tour-text"></p></div>
+                    <div class="tour-footer">
+                        <span id="tour-step"></span>
+                        <div class="tour-btns">
+                            <button id="tour-prev" class="btn-secondary">上一步</button>
+                            <button id="tour-next" class="btn-primary">下一步</button>
+                        </div>
+                    </div>
+                    <button id="tour-close" class="btn-close-abs">&times;</button>
+                </div>
+            </div>`;
+        document.body.insertAdjacentHTML('beforeend', html);
+    }
+
+    function updateTour() {
+        const steps = allTourSteps[currentPage];
+        if (!steps || !steps[currentTourStep]) return;
+        
+        const step = steps[currentTourStep];
+        const target = document.querySelector(step.target);
+        if (!target) return;
+
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        setTimeout(() => {
+            const rect = target.getBoundingClientRect();
+            const tourOverlay = document.querySelector('.tour-overlay');
+            const tourTooltip = document.querySelector('.tour-tooltip');
+            
+            // 聚焦效果
+            const radius = Math.max(rect.width, rect.height) / 1.5 + 20;
+            gsap.to(tourOverlay, {
+                webkitMaskImage: `radial-gradient(circle ${radius}px at ${rect.left + rect.width/2}px ${rect.top + rect.height/2}px, transparent 99%, black 100%)`,
+                maskImage: `radial-gradient(circle ${radius}px at ${rect.left + rect.width/2}px ${rect.top + rect.height/2}px, transparent 99%, black 100%)`,
+                duration: 0.5
+            });
+
+            // 更新內容
+            document.getElementById('tour-title').innerText = step.title;
+            document.getElementById('tour-text').innerText = step.text;
+            document.getElementById('tour-step').innerText = `${currentTourStep + 1} / ${steps.length}`;
+
+            // 智能避開文字：優先放在側邊
+            let left = rect.right + 40;
+            let top = rect.top + rect.height / 2 - 100;
+
+            if (left + 340 > window.innerWidth) { // 右邊沒空間
+                left = rect.left - 360; // 換到左邊
+            }
+            if (left < 0) { // 左邊也沒空間，放下面
+                left = rect.left + rect.width / 2 - 170;
+                top = rect.bottom + 40;
+            }
+
+            gsap.to(tourTooltip, {
+                left: Math.max(20, Math.min(window.innerWidth - 360, left)),
+                top: Math.max(100, Math.min(window.innerHeight - 300, top)),
+                opacity: 1, visibility: 'visible', y: 0, duration: 0.5
+            });
+
+            // 下一步按鈕文字
+            const nextBtn = document.getElementById('tour-next');
+            if (step.action === "click-next") {
+                nextBtn.innerText = "前往下一頁";
+            } else {
+                nextBtn.innerText = currentTourStep === steps.length - 1 ? (currentPage === 'awards.html' ? "完成" : "完成本頁") : "下一步";
+            }
+        }, 600);
+    }
+
+    injectTourUI();
+    
+    // 檢查是否有續接參數
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('tour') === 'active') {
+        setTimeout(() => {
+            document.getElementById('tour-guide').style.display = 'block';
+            updateTour();
+        }, 1000);
+    }
+
+    const trigger = document.getElementById('tour-trigger');
+    if (trigger) {
+        trigger.onclick = () => {
+            currentTourStep = 0;
+            document.getElementById('tour-guide').style.display = 'block';
+            updateTour();
         };
-    });
+    }
+
+    document.getElementById('tour-next').onclick = () => {
+        const steps = allTourSteps[currentPage];
+        const step = steps[currentTourStep];
+
+        if (step.action === "click-next") {
+            const nextLink = document.querySelector(step.target + ' a');
+            if (nextLink) window.location.href = nextLink.href + '?tour=active';
+            return;
+        }
+
+        if (currentTourStep < steps.length - 1) {
+            currentTourStep++;
+            updateTour();
+        } else {
+            closeTour();
+        }
+    };
+
+    document.getElementById('tour-prev').onclick = () => {
+        if (currentTourStep > 0) {
+            currentTourStep--;
+            updateTour();
+        }
+    };
+
+    const closeTour = () => {
+        gsap.to('#tour-guide', { opacity: 0, duration: 0.5, onComplete: () => {
+            document.getElementById('tour-guide').style.display = 'none';
+        }});
+    };
+
+    document.getElementById('tour-close').onclick = closeTour;
 });
